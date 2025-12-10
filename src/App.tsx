@@ -10,12 +10,23 @@ const App = () => {
   const [checkedUnit, setCheckedUnit] = useState<Unit>("%");
   const [value, setValue] = useState("1");
 
-  const cleanNumber = (str: string) => {
-    str = str.replace(/,/g, ".").replace(/[^0-9.]/g, "");
-    const parts = str.split(".");
-    if (parts.length > 2) str = `${parts[0]}.${parts.slice(1).join("")}`;
-    if (str === "" || str === ".") return "0";
-    return str;
+  const cleanNumber = (value: string) => {
+    let result = "";
+    let dotUsed = false;
+
+    for (const c of value) {
+      if (/\d/.test(c)) {
+        result += c;
+      } else if (c === "." && !dotUsed) {
+        result += c;
+        dotUsed = true;
+      } else {
+        break; // gặp ký tự sai → dừng luôn
+      }
+    }
+
+    if (result === "" || result === ".") return "0";
+    return result;
   };
 
   const clampValue = (val: number, unit = checkedUnit) => {
