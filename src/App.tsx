@@ -71,8 +71,8 @@ const App = () => {
                 <label key={u} className="w-full">
                   <input type="radio" name="unit" className="peer sr-only" checked={checkedUnit === u} onChange={() => switchUnit(u as Unit)} />
                   <span
-                    className="block text-center py-1.5 rounded-md cursor-pointer
-                    leading-5 text-[#AAAAAA] transition
+                    className="transition-all duration-400 ease-in-out block text-center py-1.5 rounded-md cursor-pointer
+                    leading-5 text-[#AAAAAA]
                     peer-checked:text-[#F9F9F9] peer-checked:bg-[#424242]
                     hover:bg-[#424242] hover:text-[#F9F9F9]">
                     {u}
@@ -91,7 +91,7 @@ const App = () => {
             <div className="relative flex bg-[#212121] items-center rounded-lg w-full">
               {/* MINUS */}
               <div className="absolute left-0 top-0 h-full group min-w-[36px]">
-                <button disabled={isMin} onClick={!isMin ? decrement : undefined} className={`p-2 rounded-l-lg transition ${isMin ? "cursor-not-allowed" : "hover:bg-[#3B3B3B] cursor-pointer"}`}>
+                <button disabled={isMin} onClick={!isMin ? decrement : undefined} className={`p-2 rounded-l-lg transition-all duration-400 ease-in-out ${isMin ? "cursor-not-allowed" : "hover:bg-[#3B3B3B] cursor-pointer"}`}>
                   <img src={isMin ? "./images/minus-disabled.png" : "./images/minus.png"} />
                 </button>
 
@@ -99,7 +99,7 @@ const App = () => {
                   <span
                     className="absolute left-1/2 -translate-x-1/2 bottom-[calc(100%+12px)]
                     whitespace-nowrap px-2 py-1 rounded bg-black text-white text-xs 
-                    opacity-0 group-hover:opacity-100 transition pointer-events-none">
+                    opacity-0 group-hover:opacity-100 transition-all duration-400 ease-in-out pointer-events-none">
                     Value must be greater than 0
                   </span>
                 )}
@@ -110,13 +110,13 @@ const App = () => {
                 value={value}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className="leading-5 transition rounded-lg w-full text-center py-2 px-[44px]
+                className="leading-5 transition-all duration-400 ease-in-out rounded-lg w-full text-center py-2 px-[44px]
                 outline-none focus:ring-1 focus:ring-[#3C67FF] hover:bg-[#3B3B3B]"
               />
 
               {/* PLUS */}
               <div className="absolute right-0 top-0 h-full group min-w-[36px]">
-                <button disabled={isMax} onClick={!isMax ? increment : undefined} className={`p-2 rounded-r-lg transition ${isMax ? "cursor-not-allowed" : "hover:bg-[#3B3B3B] cursor-pointer"}`}>
+                <button disabled={isMax} onClick={!isMax ? increment : undefined} className={`p-2 rounded-r-lg transition-all duration-400 ease-in-out ${isMax ? "cursor-not-allowed" : "hover:bg-[#3B3B3B] cursor-pointer"}`}>
                   <img src={isMax ? "./images/plus-disabled.png" : "./images/plus.png"} />
                 </button>
 
@@ -124,7 +124,7 @@ const App = () => {
                   <span
                     className="absolute left-1/2 -translate-x-1/2 bottom-[calc(100%+12px)]
                     whitespace-nowrap px-2 py-1 rounded bg-black text-white text-xs 
-                    opacity-0 group-hover:opacity-100 transition pointer-events-none">
+                    opacity-0 group-hover:opacity-100 transition-all duration-400 ease-in-out pointer-events-none">
                     Value must be between 0-100%
                   </span>
                 )}
