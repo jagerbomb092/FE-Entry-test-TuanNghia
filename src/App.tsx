@@ -11,6 +11,7 @@ const App = () => {
   const [value, setValue] = useState("1");
 
   const cleanNumber = (value: string) => {
+    value = value.replace(/,/g, ".");
     let result = "";
     let dotUsed = false;
 
